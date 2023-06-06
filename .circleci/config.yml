@@ -1,0 +1,18 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.8
+
+    steps:
+      - checkout
+
+      # Install Ansible
+      - run:
+          name: Install Ansible
+          command: pip install ansible
+
+      # Execute Ansible playbook
+      - run:
+          name: Run Ansible playbook
+          command: ansible-playbook playbook.yml
